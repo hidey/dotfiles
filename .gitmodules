@@ -1,6 +1,6 @@
 [submodule "perldoc-vim"]
-	path = perldoc-vim
-	url = git://github.com/mattn/perldoc-vim.git
-[submodule "vim/.vim/bundle/perldoc-vim"]
 	path = vim/.vim/bundle/perldoc-vim
 	url = git://github.com/mattn/perldoc-vim.git
+[submodule "vim/.vim/bundle/unite.vim"]
+	path = vim/.vim/bundle/unite.vim
+	url = git://github.com/Shougo/unite.vim.git
