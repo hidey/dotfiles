@@ -1,0 +1,3 @@
+[submodule "perldoc-vim"]
+	path = perldoc-vim
+	url = git://github.com/mattn/perldoc-vim.git
