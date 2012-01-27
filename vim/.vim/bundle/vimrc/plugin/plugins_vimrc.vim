@@ -13,15 +13,15 @@ nmap ss <Plug>Yssurround
 noremap ,n :NERDTreeToggle<CR>
 
 " Unite mappings
-noremap ,ue :Unite -no-quit file_rec<CR>
+noremap ,ue :Unite file_rec<CR>
 noremap ,ur :UniteResume<CR>
-noremap ,uw :UniteWithBufferDir -no-quit file<CR>
-noremap ,uf :Unite -no-quit file<CR>
-noremap ,ub :Unite -no-quit buffer<CR>
-noremap ,um :Unite -no-quit file_mru<CR>
+noremap ,uw :UniteWithBufferDir file<CR>
+noremap ,uf :Unite file<CR>
+noremap ,ub :Unite buffer<CR>
+noremap ,um :Unite file_mru<CR>
 
 " for unite window height
-let g:unite_winheight=10
+let g:unite_winheight=20
 
 
 " for yanktmp
