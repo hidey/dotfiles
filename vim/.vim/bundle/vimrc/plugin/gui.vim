@@ -15,11 +15,11 @@ set mouse=a
 set ttymouse=xterm2
 
 " カラースキーマ
-if (has('win32'))
-    colorscheme slate
-elseif (has('mac'))
-    colorscheme koehler
-else
-    colorscheme koehler
-endif
+"if (has('win32'))
+"   colorscheme slate
+"elseif (has('mac'))
+"   colorscheme koehler
+"else
+"    colorscheme koehler
+"endif
 
