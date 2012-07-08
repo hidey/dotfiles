@@ -47,8 +47,7 @@ endfunction
 
 noremap ,trim :call RTrim()<CR>:echo 'trim space!'<CR>
 
-" screen vimで開いたファイルをステータスバーのタイトルに
-autocmdb文字も区別されずにハイライトされるので、区別したいときはTab文字の表示を別に
+" screen vimで開いたファイルをステータスバーのタイトルにautocmdb文字も区別されずにハイライトされるので、区別したいときはTab文字の表示を別に
 "設定する必要がある。
 function! SOLSpaceHilight()
     syntax match SOLSpace "^\s\+" display containedin=ALL
@@ -89,4 +88,4 @@ function! s:JumpMiddle()
 endfun
 nnoremap <silent> M :call <SID>JumpMiddle()<CR>
 
- BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | silent! exe '!echo -n "
+" BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | silent! exe '!echo -n "
