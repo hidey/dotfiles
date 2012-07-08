@@ -1,6 +1,6 @@
 # How to use
 
-* git clone git@github.com:hidey/profiles.git
-* cd profiles
-* git submodule init
-* git submodule update
+1. git clone git@github.com:hidey/profiles.git
+1. cd profiles
+1. git submodule init
+1. git submodule update
