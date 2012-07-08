@@ -9,7 +9,7 @@ set statusline=%<%f\%m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v\ %
 set scrolloff=10
 
 " マウスモード有効
-set mouse=a
+"set mouse=n
 
 " screen対応
 set ttymouse=xterm2
