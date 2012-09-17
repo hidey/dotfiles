@@ -15,7 +15,8 @@ Bundle 'Shougo/vimshell.git'
 Bundle 'mattn/perldoc-vim.git'
 Bundle 'kana/vim-operator-user.git'
 Bundle 'kana/vim-operator-replace.git'
-Bundle 'git://github.com/Shougo/vimproc.git'
+Bundle 'Shougo/vimproc.git'
+Bundle 'tpope/vim-fugitive'
 
 filetype plugin indent on     " required!
 call pathogen#runtime_append_all_bundles()
