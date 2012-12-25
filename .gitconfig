@@ -1,8 +1,8 @@
 [user]
-	name = Hideyuki Kikuma
-	email = hideyuki.kikuma@gmail.com
+    name = Hideyuki Kikuma
+    email = hideyuki.kikuma@gmail.com
 [core]
-	editor = vim
+    editor = vim
 
 [alias]
     dc = diff --cached
@@ -13,7 +13,7 @@
     br = browse-remote
 
 [browse-remote "github.com"]
-	file = "https://{host}/{path}/blob/{short_rev}/{file}{line && \"#L%d\" % line}"
-	top = https://{host}/{path}
-	ref = https://{host}/{path}/tree/{short_ref}
-	rev = https://{host}/{path}/commit/{commit}
+    file = "https://{host}/{path}/blob/{short_rev}/{file}{line && \"#L%d\" % line}"
+    top = https://{host}/{path}
+    ref = https://{host}/{path}/tree/{short_ref}
+    rev = https://{host}/{path}/commit/{commit}
