@@ -3,5 +3,17 @@
 	email = hideyuki.kikuma@gmail.com
 [core]
 	editor = vim
-[github]
-	token = fcde30e7302304545c3dee20194e0ceb
+
+[alias]
+    dc = diff --cached
+    ll = log --stat --abbrev-commit
+    ln = log --graph -n 20 --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset' --name-status
+    ls = log --stat --abbrev-commit -n 2
+    st = status
+    br = browse-remote
+
+[browse-remote "github.com"]
+	file = "https://{host}/{path}/blob/{short_rev}/{file}{line && \"#L%d\" % line}"
+	top = https://{host}/{path}
+	ref = https://{host}/{path}/tree/{short_ref}
+	rev = https://{host}/{path}/commit/{commit}
