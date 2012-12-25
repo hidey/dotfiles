@@ -2,12 +2,14 @@ set smartindent
 set autoindent
 set ignorecase
 set smartcase
-set saney
+set hlsearch
+set regexsearch
 
 "search
 noremap ,sr :SearchReferencesInProject<C-m>
 
-" yank word
+" yank
+nnoremap yy yy
 nnoremap yv vawy
 
 "move the cursor
