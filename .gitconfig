@@ -1,8 +1,13 @@
 [user]
     name = Hideyuki Kikuma
     email = hideyuki.kikuma@gmail.com
+[include]
+        path = .gitconfig.local
 [core]
     editor = vim
+    excludesfile = ~/.gitignore
+[color]
+    ui = auto
 
 [alias]
     dc = diff --cached
