@@ -7,6 +7,10 @@ PS1="[${USER}@${HOST%%.*}]%1~%(!.#.%%) "
 #
 bindkey "^?" backward-delete-char
 
+# 補完
+autoload -U compinit
+compinit
+
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 autoload colors
@@ -21,7 +25,7 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 
 # コマンドライン全てのスペルチェックをする
-setopt correct_all
+#setopt correct_all
 
 # 上書きリダイレクトの禁止
 setopt no_clobber
@@ -69,6 +73,12 @@ precmd () {
 }
 RPROMPT="%1(v|%F{green}%1v%f|)"
 
+
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt share_history
+setopt hist_ignore_dups
 
 ## alias設定
 #
