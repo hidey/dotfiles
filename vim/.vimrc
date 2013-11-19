@@ -27,6 +27,8 @@ NeoBundle 'plasticboy/vim-markdown'
 filetype plugin indent on     " required!
 "call pathogen#runtime_append_all_bundles()
 
+syntax on
+
 set t_Co=256
 colorscheme  wombat256
 set wildmenu
