@@ -38,6 +38,17 @@ set expandtab
 set number
 
 "##################################
+" for search
+"##################################
+" change grep to ack
+set grepprg=ack\ -a
+
+set ignorecase
+set smartcase
+
+set hlsearch
+
+"##################################
 " for gui
 "##################################
 set wildmenu
