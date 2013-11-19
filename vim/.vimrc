@@ -71,6 +71,7 @@ endif
 " filetype
 au BufRead,BufNewFile *.t    set filetype=perl
 au BufRead,BufNewFile *.pm    set filetype=perl
+au BufNewFile,BufRead *.psgi   set filetype=perl
 
 
 "##################################
