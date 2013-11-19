@@ -2,24 +2,30 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim
+    call neobundle#rc(expand('~/.vim/bundle'))
+endif
+"set rtp+=~/.vim/bundle/vundle/
+"call vundle#rc()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+"Bundle 'gmarik/vundle'
 
 "GitHub
-Bundle 'Shougo/unite.vim.git'
-Bundle 'Shougo/vimshell.git'
-Bundle 'mattn/perldoc-vim.git'
-Bundle 'kana/vim-operator-user.git'
-Bundle 'kana/vim-operator-replace.git'
-Bundle 'Shougo/vimproc.git'
-Bundle 'tpope/vim-fugitive'
+NeoBundle 'Shougo/unite.vim.git'
+NeoBundle 'Shougo/vimshell.git'
+NeoBundle 'mattn/perldoc-vim.git'
+NeoBundle 'kana/vim-operator-user.git'
+NeoBundle 'kana/vim-operator-replace.git'
+NeoBundle 'Shougo/vimproc.git'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'chreekat/vim-instant-markdown'
+NeoBundle 'plasticboy/vim-markdown'
 
 filetype plugin indent on     " required!
-call pathogen#runtime_append_all_bundles()
+"call pathogen#runtime_append_all_bundles()
 
 set t_Co=256
 colorscheme  wombat256
