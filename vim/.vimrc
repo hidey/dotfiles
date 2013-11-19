@@ -68,9 +68,14 @@ else
     colorscheme wombat256
 endif
 
+" filetype
 au BufRead,BufNewFile *.t    set filetype=perl
 au BufRead,BufNewFile *.pm    set filetype=perl
 
+
+"##################################
+" key mapping
+"##################################
 " Unite mappings
 noremap ,ue :Unite file_rec<CR>
 noremap ,ur :UniteResume<CR>
