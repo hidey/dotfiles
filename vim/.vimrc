@@ -30,6 +30,14 @@ filetype plugin indent on     " required!
 syntax on
 
 "##################################
+" for tab
+"##################################
+set shiftwidth=4
+set tabstop=4
+set expandtab
+set number
+
+"##################################
 " for gui
 "##################################
 set wildmenu
