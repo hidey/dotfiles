@@ -29,9 +29,26 @@ filetype plugin indent on     " required!
 
 syntax on
 
-set t_Co=256
-colorscheme  wombat256
+"##################################
+" for gui
+"##################################
 set wildmenu
+" status lile
+set laststatus=2
+set statusline=%<%f\%m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%{fugitive#statusline()}%4v\ %l/%L
+
+" for screen
+set ttymouse=xterm2
+
+" colorscheme
+if (has('win32'))
+   colorscheme slate
+elseif (has('mac'))
+   colorscheme wombat256
+else
+    colorscheme wombat256
+endif
+
 au BufRead,BufNewFile *.t    set filetype=perl
 au BufRead,BufNewFile *.pm    set filetype=perl
 
