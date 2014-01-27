@@ -23,6 +23,8 @@ NeoBundle 'Shougo/vimproc.git'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'chreekat/vim-instant-markdown'
 NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'koron/codic-vim'
+NeoBundle 'rhysd/unite-codic.vim'
 
 filetype plugin indent on     " required!
 "call pathogen#runtime_append_all_bundles()
@@ -84,4 +86,5 @@ noremap ,uw :UniteWithBufferDir file<CR>
 noremap ,uf :Unite file<CR>
 noremap ,ub :Unite buffer<CR>
 noremap ,um :Unite file_mru<CR>
+noremap ,uc :Unite codic<CR>
 
