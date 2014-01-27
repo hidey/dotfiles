@@ -7,7 +7,16 @@ PS1="[${USER}@${HOST%%.*}]%1~%(!.#.%%) "
 #
 bindkey "^?" backward-delete-char
 
-# 補完
+#path
+typeset -U path cdpath fpath manpath
+typeset -xT SUDO_PATH sudo_path
+typeset -U sudo_path
+sudo_path=({/usr/local,/usr,}/sbin(N-/))
+path=(/usr/local/bin(N-/) ~/bin(N-/) ${path})
+#completion
+[ -f ~/.zsh-completions ] && fpath=(~/.zsh-completions $fpath)
+[ -f ~/usr/local/bin/brew ] && fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+
 autoload -U compinit
 compinit
 
@@ -86,3 +95,4 @@ setopt hist_ignore_dups
 ## local固有設定
 #
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
