@@ -1,4 +1,5 @@
 *.swp
 m_*
 vim/.vim/bundle
+vim/.vim/.netrwhist
 .DS_Store
