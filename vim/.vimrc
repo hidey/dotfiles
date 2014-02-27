@@ -88,3 +88,6 @@ noremap ,ub :Unite buffer<CR>
 noremap ,um :Unite file_mru<CR>
 noremap ,uc :Unite codic<CR>
 
+if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
+endif
