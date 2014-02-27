@@ -3,7 +3,7 @@ set wildmenu
 
 " ステータスライン
 set laststatus=2
-set statusline=%<%f\%m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v\ %l/%L
+set statusline=%<%f\%m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%{fugitive#statusline()}%4v\ %l/%L
 
 " 画面のスクロール幅10行でスクロール開始
 set scrolloff=10

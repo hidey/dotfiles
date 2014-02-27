@@ -7,6 +7,7 @@ set nocompatible
 set shiftwidth=4
 set tabstop=4
 set expandtab
+set number
 
 " Perl書いているときに#押したら行頭に行っちゃうのを防ぐため
 set cinkeys-=0#

@@ -20,6 +20,13 @@ noremap ,uf :Unite file<CR>
 noremap ,ub :Unite buffer<CR>
 noremap ,um :Unite file_mru<CR>
 
+" for Fugitive
+noremap ,gd :Gdiff 
+noremap ,gdc :Gdiff --cached 
+noremap ,gs :Gstatus 
+noremap ,gadd :Gwrite 
+noremap ,gl :Glog
+
 " for unite window height
 let g:unite_winheight=20
 
