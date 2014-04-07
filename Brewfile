@@ -17,9 +17,15 @@ install ruby || true
 install jq || true
 install maven || true
 install gradle || true
-install android-platform-tools || true
+#install android-platform-tools || true
+install android-sdk || true
 install tree || true
 install ag || true
+install python || true
+install ruby || true
+install brew-gem || true
+install node || true
+install htop-osx || true
 
 # for cask
 tap phinze/homebrew-cask 
@@ -36,3 +42,7 @@ cask install virtualbox || true
 cask install limechat || true
 cask install github || true
 cask install totalfinder || true
+cask install cheatsheet || true
+#cask install java || true
+cask install android-studio || true
+cask install genymotion || true
