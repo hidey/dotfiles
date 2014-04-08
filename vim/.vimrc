@@ -49,6 +49,7 @@ set ignorecase
 set smartcase
 
 set hlsearch
+noremap <Esc><Esc> :nohlsearch<CR><Esc>
 
 "##################################
 " for gui
@@ -79,6 +80,8 @@ au BufNewFile,BufRead *.psgi   set filetype=perl
 "##################################
 " key mapping
 "##################################
+noremap ; :
+
 " Unite mappings
 noremap ,ue :Unite file_rec<CR>
 noremap ,ur :UniteResume<CR>
