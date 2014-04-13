@@ -26,6 +26,7 @@ install ruby || true
 install brew-gem || true
 install node || true
 install htop-osx || true
+install gpg || true
 
 # for cask
 tap phinze/homebrew-cask 
