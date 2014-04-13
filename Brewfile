@@ -47,3 +47,6 @@ cask install cheatsheet || true
 #cask install java || true
 cask install android-studio || true
 cask install genymotion || true
+cask install kindle || true
+cask install google-japanese-ime || true
+cask install google-drive || true
