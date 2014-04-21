@@ -50,3 +50,4 @@ cask install genymotion || true
 cask install kindle || true
 cask install google-japanese-ime || true
 cask install google-drive || true
+cask install remote-desktop-connection || true
