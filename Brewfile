@@ -53,3 +53,4 @@ cask install google-drive || true
 cask install remote-desktop-connection || true
 cask install keyremap4macbook || true
 cask install inkscape || true
+cask install chromecast || true
