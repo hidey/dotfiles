@@ -29,7 +29,7 @@ install htop-osx || true
 install gpg || true
 
 # for cask
-tap phinze/homebrew-cask 
+tap caskroom/homebrew-cask
 install brew-cask || true
 
 # install cask formula
