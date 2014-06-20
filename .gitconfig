@@ -16,6 +16,7 @@
     ls = log --stat --abbrev-commit -n 2
     st = status
     br = browse-remote
+    delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 
 [browse-remote "github.com"]
     file = "https://{host}/{path}/blob/{short_rev}/{file}{line && \"#L%d\" % line}"
