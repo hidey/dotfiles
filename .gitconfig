@@ -23,3 +23,9 @@
     top = https://{host}/{path}
     ref = https://{host}/{path}/tree/{short_ref}
     rev = https://{host}/{path}/commit/{commit}
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[push]
+	default = simple
