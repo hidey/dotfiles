@@ -28,11 +28,17 @@ install node || true
 install htop-osx || true
 install gpg || true
 
+# powerline
+tap sanemat/font
+install --vim-powerline ricty
+
 # for cask
 tap caskroom/homebrew-cask
+tap caskroom/versions
 install brew-cask || true
 
 # install cask formula
+cask install java7
 cask install iterm2 || true
 cask install xtrafinder || true
 cask install alfred || true
