@@ -28,7 +28,12 @@ install node || true
 install htop-osx || true
 install gpg || true
 
-# powerline
+install rbenv || true
+install ruby-build || true
+install libxml2 || true
+install mysql || true
+
+#for powerline
 tap sanemat/font
 install --vim-powerline ricty
 

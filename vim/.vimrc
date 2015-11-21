@@ -27,6 +27,9 @@ NeoBundle 'koron/codic-vim'
 NeoBundle 'rhysd/unite-codic.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'wakatime/vim-wakatime'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tomtom/tcomment_vim'
 
 filetype plugin indent on     " required!
 "call pathogen#runtime_append_all_bundles()
@@ -100,6 +103,26 @@ endfunction
 
 " for screen
 set ttymouse=xterm2
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'fugitive': 'MyFugitive',
+    \},
+    \ 'separator': { 'left': '⮀', 'right': '⮂' },
+    \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+\ }
+
+function! MyFugitive()
+  if exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? '⭠ '._ : ''
+  endif
+  return ''
+endfunction
 
 " colorscheme
 if (has('win32'))
@@ -129,6 +152,11 @@ noremap ,uf :Unite file<CR>
 noremap ,ub :Unite buffer<CR>
 noremap ,um :Unite file_mru<CR>
 noremap ,uc :Unite codic<CR>
+
+if !exists('loaded_matchit')
+  " matchitを有効化
+  runtime macros/matchit.vim
+endif
 
 if filereadable(expand('~/.vimrc.local'))
     source ~/.vimrc.local
