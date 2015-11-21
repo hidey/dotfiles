@@ -1,6 +1,6 @@
 [user]
-    name = Hideyuki Kikuma
-    email = hideyuki.kikuma@gmail.com
+	name = Hideyuki Kikuma
+	email = hideyuki.kikuma@gmail.com
 [include]
         path = .gitconfig.local
 [core]
@@ -23,3 +23,11 @@
     top = https://{host}/{path}
     ref = https://{host}/{path}/tree/{short_ref}
     rev = https://{host}/{path}/commit/{commit}
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
