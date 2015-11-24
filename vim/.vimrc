@@ -29,6 +29,15 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'marcus/rsense'
+NeoBundle 'supermomonga/neocomplete-rsense.vim'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'yuku-t/vim-ref-ri'
+NeoBundle 'szw/vim-tags'
+NeoBundle 'wakatime/vim-wakatime'
+
 
 filetype plugin indent on     " required!
 "call pathogen#runtime_append_all_bundles()
@@ -100,6 +109,10 @@ au BufRead,BufNewFile *.t    set filetype=perl
 au BufRead,BufNewFile *.pm    set filetype=perl
 au BufNewFile,BufRead *.psgi   set filetype=perl
 
+
+let g:syntastic_mode_map = { 'mode': 'passive',
+            \ 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
 
 "##################################
 " key mapping

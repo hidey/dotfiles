@@ -96,3 +96,8 @@ setopt hist_ignore_dups
 #
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
+alias dl=docker ps -l -q
+
+
+PERL_MB_OPT="--install_base \"/Users/hideyuki.kikuma/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/hideyuki.kikuma/perl5"; export PERL_MM_OPT;

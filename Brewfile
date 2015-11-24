@@ -32,6 +32,8 @@ install rbenv || true
 install ruby-build || true
 install libxml2 || true
 install mysql || true
+install rsense || true
+install ctags || true
 
 #for powerline
 tap sanemat/font
