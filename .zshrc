@@ -82,6 +82,9 @@ precmd () {
 }
 RPROMPT="%1(v|%F{green}%1v%f|)"
 
+export JAVA7_HOME=$(/usr/libexec/java_home -v 1.7)
+export JAVA8_HOME=$(/usr/libexec/java_home -v 1.8)
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
 
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
