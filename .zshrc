@@ -82,6 +82,12 @@ precmd () {
 }
 RPROMPT="%1(v|%F{green}%1v%f|)"
 
+## PRのページを開く
+propen() {
+    local current_branch_name=$(git symbolic-ref --short HEAD | xargs perl -MURI::Escape -e 'print uri_escape($ARGV[0]);')
+    hub browse -- pull/${current_branch_name}
+}
+
 export JAVA7_HOME=$(/usr/libexec/java_home -v 1.7)
 export JAVA8_HOME=$(/usr/libexec/java_home -v 1.8)
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
@@ -91,6 +97,23 @@ HISTSIZE=100000
 SAVEHIST=100000
 setopt share_history
 setopt hist_ignore_dups
+
+## for perl
+export PATH="${HOME}/.plenv/shims:${PATH}"
+if which plenv > /dev/null; then eval "$(plenv init -)"; fi
+
+## for ruby
+# rbenv
+if [ -d ${HOME}/.rbenv  ] ; then
+    export PATH="${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}"
+    eval "$(rbenv init -)"
+fi
+
+if [ -s "$HOME/.rvm/scripts/rvm" ]; then
+    source "$HOME/.rvm/scripts/rvm"
+elif [ -x `which gem` ]; then
+          PATH="`gem env | perl -ne 'print $1 if /EXECUTABLE DIRECTORY: (.+)$/'`":$PATH
+fi
 
 ## alias設定
 #
