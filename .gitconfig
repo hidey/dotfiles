@@ -40,4 +40,4 @@
 [commit]
 	template = ~/.git_template/commit-msg.txt
 [init]
-    templatedir = ~/.git_template
+    templatedir = ~/.git_template/init.template
