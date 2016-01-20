@@ -38,6 +38,9 @@ NeoBundle 'yuku-t/vim-ref-ri'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'wakatime/vim-wakatime'
 
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
+
 
 filetype plugin indent on     " required!
 "call pathogen#runtime_append_all_bundles()
@@ -145,11 +148,13 @@ endif
 au BufRead,BufNewFile *.t    set filetype=perl
 au BufRead,BufNewFile *.pm    set filetype=perl
 au BufNewFile,BufRead *.psgi   set filetype=perl
+au BufRead,BufNewFile *.md set filetype=markdown
 
 
 let g:syntastic_mode_map = { 'mode': 'passive',
             \ 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
+let g:vim_markdown_folding_disabled = 1
 
 "##################################
 " key mapping
