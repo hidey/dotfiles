@@ -38,9 +38,14 @@ NeoBundle 'yuku-t/vim-ref-ri'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'wakatime/vim-wakatime'
 
+" markdown
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 
+" color scheme
+NeoBundle 'jeffreyiacono/vim-colors-wombat'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'tomasr/molokai'
 
 filetype plugin indent on     " required!
 "call pathogen#runtime_append_all_bundles()
@@ -83,16 +88,16 @@ let g:Powerline_symbols = 'fancy'
 if (has('win32'))
    colorscheme slate
 elseif (has('mac'))
-   colorscheme wombat256
+   colorscheme wombat
 else
-    colorscheme wombat256
+    colorscheme wombat
 endif
 
 " filetype
-au BufRead,BufNewFile *.t    set filetype=perl
-au BufRead,BufNewFile *.pm    set filetype=perl
-au BufNewFile,BufRead *.psgi   set filetype=perl
-au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.t       set filetype=perl
+au BufRead,BufNewFile *.pm      set filetype=perl
+au BufNewFile,BufRead *.psgi    set filetype=perl
+au BufRead,BufNewFile *.md      set filetype=markdown
 
 
 let g:syntastic_mode_map = { 'mode': 'passive',
