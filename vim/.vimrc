@@ -75,65 +75,9 @@ set wildmenu
 set laststatus=2
 "set statusline=%<%f\%m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%{fugitive#statusline()}%4v\ %l/%L
 set ambiwidth=double
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'fugitive': 'MyFugitive',
-      \   'modified': 'MyModified'
-      \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-      \ }
 
-function! MyModified()
-  if &filetype == "help"
-    return ""
-  elseif &modified
-    return "+"
-  elseif &modifiable
-    return ""
-  else
-    return ""
-  endif
-endfunction
-
-function! MyFugitive()
-  if exists("*fugitive#head")
-    let _ = fugitive#head()
-    return strlen(_) ? '⭠ '._ : ''
-  endif
-  return ''
-endfunction
-"function! MyFugitive()
-"    return exists('*fugitive#head') ? fugitive#head() : ''
-"endfunction
-
-" for screen
-set ttymouse=xterm2
-let g:lightline = {
-    \ 'colorscheme': 'wombat',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-    \ },
-    \ 'component_function': {
-    \   'fugitive': 'MyFugitive',
-    \},
-    \ 'separator': { 'left': '⮀', 'right': '⮂' },
-    \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-\ }
-
-function! MyFugitive()
-  if exists("*fugitive#head")
-    let _ = fugitive#head()
-    return strlen(_) ? '⭠ '._ : ''
-  endif
-  return ''
-endfunction
+" Powerline
+let g:Powerline_symbols = 'fancy'
 
 " colorscheme
 if (has('win32'))
