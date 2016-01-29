@@ -6,12 +6,6 @@ if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim
     call neobundle#rc(expand('~/.vim/bundle'))
 endif
-"set rtp+=~/.vim/bundle/vundle/
-"call vundle#rc()
-
-" let Vundle manage Vundle
-" required! 
-"Bundle 'gmarik/vundle'
 
 "GitHub
 NeoBundle 'Shougo/unite.vim.git'
@@ -48,7 +42,6 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'tomasr/molokai'
 
 filetype plugin indent on     " required!
-"call pathogen#runtime_append_all_bundles()
 
 syntax on
 
@@ -78,7 +71,6 @@ noremap <Esc><Esc> :nohlsearch<CR><Esc>
 set wildmenu
 " status lile
 set laststatus=2
-"set statusline=%<%f\%m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%{fugitive#statusline()}%4v\ %l/%L
 set ambiwidth=double
 
 " Powerline
