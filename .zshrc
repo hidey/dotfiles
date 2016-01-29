@@ -1,8 +1,6 @@
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
-PS1="[${USER}@${HOST%%.*}]%1~%(!.#.%%) "
-
 ## Backspace key
 #
 bindkey "^?" backward-delete-char
@@ -61,27 +59,6 @@ zstyle ':completion:*' list-colors di=34 fi=0
 # beepを鳴らさないようにする
 setopt nolistbeep
 
-
-autoload vcs_info
-zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:*' formats '(%s)-[%b]'
-zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-
-autoload -Uz is-at-least
-
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "+"    # 適当な文字列に変更する
-zstyle ':vcs_info:git:*' unstagedstr "-"  # 適当の文字列に変更する
-zstyle ':vcs_info:git:*' formats '(%s)-[%b] %c%u'
-zstyle ':vcs_info:git:*' actionformats '(%s)-[%b|%a] %c%u'
-
-## プロンプトにバージョン管理情報を表示
-precmd () {
-    psvar=()
-    LANG=ja_JP.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-RPROMPT="%1(v|%F{green}%1v%f|)"
 # powerline
 . ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 
