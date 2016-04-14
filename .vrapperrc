@@ -6,26 +6,26 @@ set hlsearch
 set regexsearch
 
 "search
-noremap ,sr :SearchReferencesInProject<C-m>
+noremap ,sr :SearchReferencesInProject<CR>
 
 " yank
 nnoremap yy yy
 nnoremap yv vawy
 
 "move the cursor
-nnoremap gb :goToLastEditPosition<C-m>
-nnoremap gg :0<C-m>
+nnoremap gb :goToLastEditPosition<CR>
+nnoremap gg :0<CR>
 
 "next member(fields or method)
-nnoremap ]] :GotoNextMember<C-m>
-nnoremap [[ :GotoPreviousMember<C-m>
+nnoremap ]] :GotoNextMember<CR>
+nnoremap [[ :GotoPreviousMember<CR>
 
 " Open Declaration
-nnoremap ff :OpenEditor<C-m>
+nnoremap ff :OpenEditor<CR>
 
 " refactor
-nnoremap ,r :RenameElement<C-m>
-"nnoremap ,rv :PromoteLocalVariable<C-m>
+nnoremap ,r :RenameElement<CR>
+"nnoremap ,rv :PromoteLocalVariable<CR>
 
 
 " define action

@@ -1,0 +1,14 @@
+"##################################
+" for search
+"##################################
+set ignorecase
+set smartcase
+
+set hlsearch
+noremap <Esc><Esc> :nohlsearch<CR><Esc>
+
+"##################################
+" key mapping
+"##################################
+noremap ; :
+

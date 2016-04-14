@@ -1,0 +1,17 @@
+"##################################
+" for search
+"##################################
+" change grep to ack
+set grepprg=ack\ -a
+
+set ignorecase
+set smartcase
+
+set hlsearch
+noremap <Esc><Esc> :nohlsearch<CR><Esc>
+
+"##################################
+" key mapping
+"##################################
+noremap ; :
+

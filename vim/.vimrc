@@ -6,12 +6,6 @@ if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim
     call neobundle#rc(expand('~/.vim/bundle'))
 endif
-"set rtp+=~/.vim/bundle/vundle/
-"call vundle#rc()
-
-" let Vundle manage Vundle
-" required! 
-"Bundle 'gmarik/vundle'
 
 "GitHub
 NeoBundle 'Shougo/unite.vim.git'
@@ -29,9 +23,25 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'marcus/rsense'
+NeoBundle 'supermomonga/neocomplete-rsense.vim'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'yuku-t/vim-ref-ri'
+NeoBundle 'szw/vim-tags'
+NeoBundle 'wakatime/vim-wakatime'
+
+" markdown
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
+
+" color scheme
+NeoBundle 'jeffreyiacono/vim-colors-wombat'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'tomasr/molokai'
 
 filetype plugin indent on     " required!
-"call pathogen#runtime_append_all_bundles()
 
 syntax on
 
@@ -61,45 +71,31 @@ noremap <Esc><Esc> :nohlsearch<CR><Esc>
 set wildmenu
 " status lile
 set laststatus=2
-set statusline=%<%f\%m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%{fugitive#statusline()}%4v\ %l/%L
+set ambiwidth=double
 
-" for screen
-set ttymouse=xterm2
-let g:lightline = {
-    \ 'colorscheme': 'wombat',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-    \ },
-    \ 'component_function': {
-    \   'fugitive': 'MyFugitive',
-    \},
-    \ 'separator': { 'left': '⮀', 'right': '⮂' },
-    \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-\ }
-
-function! MyFugitive()
-  if exists("*fugitive#head")
-    let _ = fugitive#head()
-    return strlen(_) ? '⭠ '._ : ''
-  endif
-  return ''
-endfunction
+" Powerline
+let g:Powerline_symbols = 'fancy'
 
 " colorscheme
 if (has('win32'))
    colorscheme slate
 elseif (has('mac'))
-   colorscheme wombat256
+   colorscheme wombat
 else
-    colorscheme wombat256
+    colorscheme wombat
 endif
 
 " filetype
-au BufRead,BufNewFile *.t    set filetype=perl
-au BufRead,BufNewFile *.pm    set filetype=perl
-au BufNewFile,BufRead *.psgi   set filetype=perl
+au BufRead,BufNewFile *.t       set filetype=perl
+au BufRead,BufNewFile *.pm      set filetype=perl
+au BufNewFile,BufRead *.psgi    set filetype=perl
+au BufRead,BufNewFile *.md      set filetype=markdown
 
+
+let g:syntastic_mode_map = { 'mode': 'passive',
+            \ 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:vim_markdown_folding_disabled = 1
 
 "##################################
 " key mapping

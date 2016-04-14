@@ -1,7 +1,8 @@
 # show commit id
-set show-id = yes
+#set show-id = yes
 set id-width = 12
 
 set vertical-split = yes
 set diff-context = 6
 
+#set ignore-space = all

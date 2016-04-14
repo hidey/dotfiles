@@ -29,3 +29,15 @@
 	smudge = git media smudge %f
 [push]
 	default = simple
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[commit]
+	template = ~/.git_template/commit-msg.txt
+[init]
+    templatedir = ~/.git_template/init.template

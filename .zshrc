@@ -1,8 +1,6 @@
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
-PS1="[${USER}@${HOST%%.*}]%1~%(!.#.%%) "
-
 ## Backspace key
 #
 bindkey "^?" backward-delete-char
@@ -13,6 +11,7 @@ typeset -xT SUDO_PATH sudo_path
 typeset -U sudo_path
 sudo_path=({/usr/local,/usr,}/sbin(N-/))
 path=(/usr/local/bin(N-/) ~/bin(N-/) ${path})
+path=(${path} ~/Library/Python/2.7/bin)
 #completion
 [ -f ~/.zsh-completions ] && fpath=(~/.zsh-completions $fpath)
 [ -f ~/usr/local/bin/brew ] && fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
@@ -60,34 +59,41 @@ zstyle ':completion:*' list-colors di=34 fi=0
 # beepを鳴らさないようにする
 setopt nolistbeep
 
+# powerline
+. ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 
-autoload vcs_info
-zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:*' formats '(%s)-[%b]'
-zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-
-autoload -Uz is-at-least
-
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "+"    # 適当な文字列に変更する
-zstyle ':vcs_info:git:*' unstagedstr "-"  # 適当の文字列に変更する
-zstyle ':vcs_info:git:*' formats '(%s)-[%b] %c%u'
-zstyle ':vcs_info:git:*' actionformats '(%s)-[%b|%a] %c%u'
-
-## プロンプトにバージョン管理情報を表示
-precmd () {
-    psvar=()
-    LANG=ja_JP.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+## PRのページを開く
+propen() {
+    local current_branch_name=$(git symbolic-ref --short HEAD | xargs perl -MURI::Escape -e 'print uri_escape($ARGV[0]);')
+    hub browse -- pull/${current_branch_name}
 }
-RPROMPT="%1(v|%F{green}%1v%f|)"
 
+export JAVA7_HOME=$(/usr/libexec/java_home -v 1.7)
+export JAVA8_HOME=$(/usr/libexec/java_home -v 1.8)
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
 
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt share_history
 setopt hist_ignore_dups
+
+## for perl
+export PATH="${HOME}/.plenv/shims:${PATH}"
+if which plenv > /dev/null; then eval "$(plenv init -)"; fi
+
+## for ruby
+# rbenv
+if [ -d ${HOME}/.rbenv  ] ; then
+    export PATH="${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}"
+    eval "$(rbenv init -)"
+fi
+
+if [ -s "$HOME/.rvm/scripts/rvm" ]; then
+    source "$HOME/.rvm/scripts/rvm"
+elif [ -x `which gem` ]; then
+          PATH="`gem env | perl -ne 'print $1 if /EXECUTABLE DIRECTORY: (.+)$/'`":$PATH
+fi
 
 ## alias設定
 #
@@ -96,3 +102,4 @@ setopt hist_ignore_dups
 #
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
+alias dl=docker ps -l -q
