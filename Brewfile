@@ -1,69 +1,89 @@
-# update homebrew
-update
-
-# upgrade formula
-upgrade
-
-# install formula
-install zsh || true
-install zsh-completions || true
-install vim || true
-install tmux || true
-install openssl || true
-install git || true
-install tig || true
-install hub || true
-install ruby || true
-install jq || true
-install maven || true
-install gradle || true
-#install android-platform-tools || true
-install android-sdk || true
-install tree || true
-install ag || true
-install python || true
-install ruby || true
-install brew-gem || true
-install node || true
-install htop-osx || true
-install gpg || true
-
-install rbenv || true
-install ruby-build || true
-install libxml2 || true
-install mysql || true
-install rsense || true
-install ctags || true
-
-#for powerline
-tap sanemat/font
-install --vim-powerline ricty
-
-# for cask
-tap caskroom/homebrew-cask
-tap caskroom/versions
-install brew-cask || true
-
-# install cask formula
-cask install java7
-cask install iterm2 || true
-cask install xtrafinder || true
-cask install alfred || true
-cask install google-chrome || true
-cask install firefox || true
-cask install vagrant || true
-cask install virtualbox || true
-cask install limechat || true
-cask install github || true
-cask install totalfinder || true
-cask install cheatsheet || true
-#cask install java || true
-cask install android-studio || true
-cask install genymotion || true
-cask install kindle || true
-cask install google-japanese-ime || true
-cask install google-drive || true
-cask install remote-desktop-connection || true
-cask install keyremap4macbook || true
-cask install inkscape || true
-cask install chromecast || true
+tap 'caskroom/cask'
+tap 'caskroom/versions'
+tap 'homebrew/brewdler'
+tap 'homebrew/fuse'
+tap 'homebrew/versions'
+tap 'rcmdnk/file'
+tap 'sanemat/font'
+brew 'android-sdk'
+brew 'android-ndk'
+brew 'autoconf'
+brew 'binutils'
+brew 'bison'
+brew 'icu4c'
+brew 'boost'
+brew 'brew-gem'
+brew 'cabextract'
+brew 'cask'
+brew 'ccache'
+brew 'ctags'
+brew 'fontforge'
+brew 'gdbm'
+brew 'gradle'
+brew 'gdub'
+brew 'xz'
+brew 'pcre'
+brew 'git'
+brew 'gnupg'
+brew 'go'
+brew 'hub'
+brew 'jpeg'
+brew 'oniguruma'
+brew 'jq'
+brew 'pkg-config'
+brew 'openssl'
+brew 'libevent'
+brew 'libffi'
+brew 'libsodium'
+brew 'readline'
+brew 'sqlite'
+brew 'python'
+brew 'libxml2'
+brew 'libyaml'
+brew 'lua'
+brew 'luajit'
+brew 'ninja'
+brew 'nkf'
+brew 'perl-build'
+brew 'plenv'
+brew 'redis'
+brew 'rsense'
+brew 'ruby-build'
+brew 'terminal-notifier'
+brew 'the_silver_searcher'
+brew 'tig'
+brew 'tmux'
+brew 'tree'
+brew 'vim'
+brew 'zsh'
+brew 'zsh-completions'
+brew 'caskroom/cask/brew-cask'
+brew 'rcmdnk/file/brew-file'
+cask 'alfred'
+cask 'android-studio'
+cask 'android-studio-canary'
+cask 'cheatsheet'
+cask 'firefox'
+cask 'fontforge'
+cask 'genymotion'
+cask 'github-desktop'
+cask 'google-chrome'
+cask 'google-drive'
+cask 'google-japanese-ime'
+cask 'inkscape'
+cask 'iterm2'
+cask 'java'
+cask 'java6'
+cask 'java7'
+cask 'kindle'
+cask 'limechat'
+cask 'multifirefox'
+cask 'skype'
+cask 'slack'
+cask 'texturepacker'
+cask 'totalfinder'
+cask 'vagrant'
+cask 'virtualbox'
+cask 'wineskin-winery'
+cask 'xquartz'
+cask 'xtrafinder'
