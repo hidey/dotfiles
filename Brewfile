@@ -60,7 +60,6 @@ brew 'vim'
 brew 'zsh'
 brew 'zsh-completions'
 brew 'sanemat/font/ricty', args: ['vim-powerline']
-brew 'rcmdnk/file/brew-file'
 cask 'android-studio'
 cask 'android-studio-canary'
 cask 'cheatsheet'
