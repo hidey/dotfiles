@@ -79,14 +79,14 @@ setopt share_history
 setopt hist_ignore_dups
 
 ## for perl
-export PATH="${HOME}/.plenv/shims:${PATH}"
-if which plenv > /dev/null; then eval "$(plenv init -)"; fi
+#export PATH="${HOME}/.plenv/shims:${PATH}"
+#if which plenv > /dev/null; then eval "$(plenv init -)"; fi
 
 ## for ruby
 # rbenv
 if [ -d ${HOME}/.rbenv  ] ; then
     export PATH="${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}"
-    eval "$(rbenv init -)"
+    eval "$(rbenv init - --no-rehash)"
 fi
 
 if [ -s "$HOME/.rvm/scripts/rvm" ]; then
@@ -103,3 +103,6 @@ fi
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 alias dl=docker ps -l -q
+alias ll="ls -l"
+
+alias brew="env PATH=${PATH/~\/Library\/Python\/2.7\/bin:?/} brew"
