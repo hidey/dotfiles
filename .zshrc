@@ -103,3 +103,6 @@ fi
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 alias dl=docker ps -l -q
+alias ll="ls -l"
+
+alias brew="env PATH=${PATH/~\/Library\/Python\/2.7\/bin:?/} brew"
