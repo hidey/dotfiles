@@ -12,3 +12,4 @@
 # - Don't use "assert_not_nil"
 # - Allow the user to drag faster
 # - Remove methods to avoid warnings.
+# - Cosmetic change
