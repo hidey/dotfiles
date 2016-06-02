@@ -95,6 +95,8 @@ elif [ -x `which gem` ]; then
           PATH="`gem env | perl -ne 'print $1 if /EXECUTABLE DIRECTORY: (.+)$/'`":$PATH
 fi
 
+export HOMEBREW_NO_ANALYTICS=1
+
 ## alias設定
 #
 [ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
