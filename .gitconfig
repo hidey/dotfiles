@@ -41,3 +41,5 @@
 	template = ~/.git_template/commit-msg.txt
 [init]
     templatedir = ~/.git_template/init.template
+[diff]
+	compactionHeuristic = true

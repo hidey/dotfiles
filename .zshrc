@@ -70,7 +70,7 @@ propen() {
 
 export JAVA7_HOME=$(/usr/libexec/java_home -v 1.7)
 export JAVA8_HOME=$(/usr/libexec/java_home -v 1.8)
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+export JAVA_HOME=$JAVA8_HOME
 
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
@@ -90,9 +90,9 @@ if [ -d ${HOME}/.rbenv  ] ; then
 fi
 
 if [ -s "$HOME/.rvm/scripts/rvm" ]; then
-    source "$HOME/.rvm/scripts/rvm"
+    source -U "$HOME/.rvm/scripts/rvm"
 elif [ -x `which gem` ]; then
-          PATH="`gem env | perl -ne 'print $1 if /EXECUTABLE DIRECTORY: (.+)$/'`":$PATH
+    PATH="`gem env | perl -ne 'print $1 if /EXECUTABLE DIRECTORY: (.+)$/'`":$PATH
 fi
 
 export HOMEBREW_NO_ANALYTICS=1
