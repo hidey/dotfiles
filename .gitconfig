@@ -43,3 +43,5 @@
     templatedir = ~/.git_template/init.template
 [diff]
 	compactionHeuristic = true
+[fetch]
+	prune = true
