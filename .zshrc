@@ -71,6 +71,7 @@ propen() {
 export JAVA7_HOME=$(/usr/libexec/java_home -v 1.7)
 export JAVA8_HOME=$(/usr/libexec/java_home -v 1.8)
 export JAVA_HOME=$JAVA8_HOME
+export PATH="${JAVA_HOME}/bin:${PATH}"
 
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
