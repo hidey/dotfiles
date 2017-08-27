@@ -109,3 +109,4 @@ alias dl=docker ps -l -q
 alias ll="ls -l"
 
 alias brew="env PATH=${PATH/~\/Library\/Python\/2.7\/bin:?/} brew"
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
