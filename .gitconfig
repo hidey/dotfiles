@@ -17,6 +17,7 @@
     st = status
     br = browse-remote
     delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+    push-f = push --force-with-lease
 
 [browse-remote "github.com"]
     file = "https://{host}/{path}/blob/{short_rev}/{file}{line && \"#L%d\" % line}"
