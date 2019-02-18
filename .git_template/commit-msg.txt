@@ -13,3 +13,29 @@
 # - Allow the user to drag faster
 # - Remove methods to avoid warnings.
 # - Cosmetic change
+#
+# :art:                       Improve the structure of format of the code
+# :zap:                       Improve performance
+# :fire:                      Remove code or delete files
+# :bug:                       Fixing bug 
+# :bug: :bug:                 Fixing bugs (n times)
+# :ambulance:                 Patching hotfix
+# :sparkles:                  Introducing new features
+# :memo:                      Writing Readme or document
+# :rocket:                    Ship or deploy stuffs
+# :memo:                      Writing Readme or document
+# :lipstick:                  Update UI or styling or apperance
+# :tada:                      Achieve something important (deserve of celebration)
+# :white_check_mark:          Add tests
+# :bookmark:                  Relase or tag a version
+# :truck:                     Move files
+# :recycle:                   Refactor code
+# :construction_worker_man:   Do something with CI
+# :rotating_light:            Fix warnings
+# :arrow_up:                  Upgrade dependencies
+# :chart_with_upwards_trend:  Add analytics / logs
+# :globe_with_meridians:      Add translation/internationalization
+# :boom:                      Breaking changes
+# :see_no_evil:               Add suboptimal code, use duct tape solution
+# :meat_on_bone:              Going/Went to まんぷく for lunch
+
