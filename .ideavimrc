@@ -7,6 +7,9 @@ set smartcase
 set hlsearch
 noremap <Esc><Esc> :nohlsearch<CR><Esc>
 
+" use visualbell
+set visualbell
+
 "##################################
 " key mapping
 "##################################
