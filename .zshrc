@@ -68,8 +68,10 @@ propen() {
     hub browse -- pull/${current_branch_name}
 }
 
-export JAVA8_HOME=$(/usr/libexec/java_home -v 1.8)
-export JAVA_HOME=$JAVA8_HOME
+export JAVA17_HOME=$(/usr/libexec/java_home -v 17)
+# export JAVA14_HOME=$(/usr/libexec/java_home -v 1.9)
+#export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=$JAVA17_HOME
 export PATH="${JAVA_HOME}/bin:${PATH}"
 
 HISTFILE=~/.zsh_history
@@ -96,6 +98,13 @@ elif [ -x `which gem` ]; then
 fi
 
 export HOMEBREW_NO_ANALYTICS=1
+
+if [ -d /usr/local/sbin ]; then
+    PATH="/usr/local/sbin:$PATH"
+fi
+if [ -d /usr/local/opt/openssl ]; then
+    PATH="/usr/local/opt/openssl/bin:$PATH"
+fi
 
 ## alias設定
 #
