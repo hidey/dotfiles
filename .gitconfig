@@ -18,6 +18,7 @@
     br = branch --sort=authordate
     delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
     push-f = push --force-with-lease
+    branch-sorted = branch -v --format='%(committerdate:short) %(refname:short)' --sort=-committerdate
 
 [browse-remote "github.com"]
     file = "https://{host}/{path}/blob/{short_rev}/{file}{line && \"#L%d\" % line}"
