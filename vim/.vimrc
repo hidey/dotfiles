@@ -2,44 +2,49 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim
-    call neobundle#rc(expand('~/.vim/bundle'))
+" vim-plug 自動インストール
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-"GitHub
-NeoBundle 'Shougo/unite.vim.git'
-NeoBundle 'Shougo/vimshell.git'
-NeoBundle 'mattn/perldoc-vim.git'
-NeoBundle 'kana/vim-operator-user.git'
-NeoBundle 'kana/vim-operator-replace.git'
-NeoBundle 'Shougo/vimproc.git'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'chreekat/vim-instant-markdown'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'koron/codic-vim'
-NeoBundle 'rhysd/unite-codic.vim'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'marcus/rsense'
-NeoBundle 'supermomonga/neocomplete-rsense.vim'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'yuku-t/vim-ref-ri'
-NeoBundle 'szw/vim-tags'
-NeoBundle 'wakatime/vim-wakatime'
+call plug#begin('~/.vim/plugged')
 
-" markdown
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
+" Git
+Plug 'tpope/vim-fugitive'
 
-" color scheme
-NeoBundle 'jeffreyiacono/vim-colors-wombat'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'tomasr/molokai'
+" ステータスライン
+Plug 'itchyny/lightline.vim'
+
+" ファイルツリー
+Plug 'scrooloose/nerdtree'
+
+" 編集補助
+Plug 'tpope/vim-endwise'
+Plug 'tomtom/tcomment_vim'
+
+" Markdown
+Plug 'plasticboy/vim-markdown'
+Plug 'kannokanno/previm'
+Plug 'tyru/open-browser.vim'
+
+" 時間トラッキング
+Plug 'wakatime/vim-wakatime'
+
+" カラースキーム
+Plug 'jeffreyiacono/vim-colors-wombat'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
+
+" ファジーファインダー
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" LSP補完/Lint/定義ジャンプ
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
 
 filetype plugin indent on     " required!
 
@@ -56,8 +61,9 @@ set number
 "##################################
 " for search
 "##################################
-" change grep to ack
-set grepprg=ack\ -a
+" ripgrep を使用
+set grepprg=rg\ --vimgrep
+set grepformat=%f:%l:%c:%m
 
 set ignorecase
 set smartcase
@@ -69,12 +75,9 @@ noremap <Esc><Esc> :nohlsearch<CR><Esc>
 " for gui
 "##################################
 set wildmenu
-" status lile
+" status line
 set laststatus=2
 set ambiwidth=double
-
-" Powerline
-let g:Powerline_symbols = 'fancy'
 
 " colorscheme
 if (has('win32'))
@@ -86,30 +89,42 @@ else
 endif
 
 " filetype
-au BufRead,BufNewFile *.t       set filetype=perl
-au BufRead,BufNewFile *.pm      set filetype=perl
-au BufNewFile,BufRead *.psgi    set filetype=perl
 au BufRead,BufNewFile *.md      set filetype=markdown
 
-
-let g:syntastic_mode_map = { 'mode': 'passive',
-            \ 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
 let g:vim_markdown_folding_disabled = 1
+
+"##################################
+" coc.nvim 設定
+"##################################
+set updatetime=300
+set signcolumn=yes
+
+" coc.nvim キーマッピング
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
 
 "##################################
 " key mapping
 "##################################
 noremap ; :
 
-" Unite mappings
-noremap ,ue :Unite file_rec<CR>
-noremap ,ur :UniteResume<CR>
-noremap ,uw :UniteWithBufferDir file<CR>
-noremap ,uf :Unite file<CR>
-noremap ,ub :Unite buffer<CR>
-noremap ,um :Unite file_mru<CR>
-noremap ,uc :Unite codic<CR>
+" fzf.vim マッピング
+noremap ,f :Files<CR>
+noremap ,F :Files %:p:h<CR>
+noremap ,b :Buffers<CR>
+noremap ,h :History<CR>
+noremap ,r :Rg<CR>
 
 if !exists('loaded_matchit')
   " matchitを有効化
