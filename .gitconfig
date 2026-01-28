@@ -2,7 +2,7 @@
     name = Hideyuki Kikuma
     email = hideyuki.kikuma@gmail.com
 [include]
-        path = .gitconfig.local
+    path = .gitconfig.local
 [core]
     editor = vim
     excludesfile = ~/.gitignore
@@ -25,32 +25,33 @@
     top = https://{host}/{path}
     ref = https://{host}/{path}/tree/{short_ref}
     rev = https://{host}/{path}/commit/{commit}
-[filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
-[push]
-	default = current
-	autoSetupRemote = true
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
+
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
+    clean = git lfs clean %f
+    smudge = git lfs smudge %f
+    required = true
+
+[push]
+    default = current
+    autoSetupRemote = true
+
 [commit]
-	template = ~/.git_template/commit-msg.txt
+    template = ~/.git_template/commit-msg.txt
+
 [init]
     templatedir = ~/.git_template/init.template
+
 [diff]
-	indentHeuristic = true
+    indentHeuristic = true
+
 [fetch]
-	prune = true
-[url "ssh://git@github.com"]
-	insteadOf = https://github.com
+    prune = true
+
 [pull]
-	autostash = true
+    autostash = true
+
 [rebase]
-	autoStash = true
+    autoStash = true
+
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
