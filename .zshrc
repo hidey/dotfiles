@@ -11,10 +11,12 @@ typeset -xT SUDO_PATH sudo_path
 typeset -U sudo_path
 sudo_path=({/usr/local,/usr,}/sbin(N-/))
 path=(/opt/homebrew/bin(N-/) ~/bin(N-/) ${path})
-path=(${path} ~/Library/Python/2.7/bin)
+path=(${path} ~/.local/bin)
+path=(${path} $(brew --prefix)/sbin)
+
 #completion
 [ -f ~/.zsh-completions ] && fpath=(~/.zsh-completions $fpath)
-[ -f ~/opt/homebrew/bin/brew ] && fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+[ -f /opt/homebrew/bin/brew ] && fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
 autoload -U compinit
 compinit
@@ -60,18 +62,30 @@ zstyle ':completion:*' list-colors di=34 fi=0
 setopt nolistbeep
 
 # powerline
-. ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+powerline_zsh=""
+# pipx
+powerline_pipx=(~/.local/pipx/venvs/powerline-status/lib/python*/site-packages/powerline/bindings/zsh/powerline.zsh(N))
+if [[ -n "$powerline_pipx" ]]; then
+    powerline_zsh="$powerline_pipx[1]"
+# pip (user)
+elif [[ -f ~/.local/lib/python*/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+    powerline_pip=(~/.local/lib/python*/site-packages/powerline/bindings/zsh/powerline.zsh(N))
+    powerline_zsh="$powerline_pip[1]"
+# homebrew
+elif [[ -f /opt/homebrew/lib/python*/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+    powerline_brew=(/opt/homebrew/lib/python*/site-packages/powerline/bindings/zsh/powerline.zsh(N))
+    powerline_zsh="$powerline_brew[1]"
+fi
 
-## PRのページを開く
-propen() {
-    local current_branch_name=$(git symbolic-ref --short HEAD | xargs perl -MURI::Escape -e 'print uri_escape($ARGV[0]);')
-    hub browse -- pull/${current_branch_name}
-}
+if [[ -n "$powerline_zsh" ]]; then
+    . "$powerline_zsh"
+fi
+
+## PRのページを開く (gh CLI)
+alias propen='gh pr view --web'
 
 export JAVA17_HOME=$(/usr/libexec/java_home -v 17)
-# export JAVA14_HOME=$(/usr/libexec/java_home -v 1.9)
-#export JAVA_HOME=$(/usr/libexec/java_home)
-export JAVA_HOME=$JAVA17_HOME
+export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH="${JAVA_HOME}/bin:${PATH}"
 
 HISTFILE=~/.zsh_history
@@ -80,21 +94,11 @@ SAVEHIST=100000
 setopt share_history
 setopt hist_ignore_dups
 
-## for perl
-#export PATH="${HOME}/.plenv/shims:${PATH}"
-#if which plenv > /dev/null; then eval "$(plenv init -)"; fi
-
 ## for ruby
 # rbenv
 if [ -d ${HOME}/.rbenv  ] ; then
     export PATH="${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}"
     eval "$(rbenv init - --no-rehash)"
-fi
-
-if [ -s "$HOME/.rvm/scripts/rvm" ]; then
-    source -U "$HOME/.rvm/scripts/rvm"
-elif [ -x `which gem` ]; then
-    PATH="`gem env | perl -ne 'print $1 if /EXECUTABLE DIRECTORY: (.+)$/'`":$PATH
 fi
 
 export HOMEBREW_NO_ANALYTICS=1
@@ -106,6 +110,11 @@ if [ -d /usr/local/opt/openssl ]; then
     PATH="/usr/local/opt/openssl/bin:$PATH"
 fi
 
+## fzf
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 ## alias設定
 #
 [ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
@@ -113,8 +122,7 @@ fi
 #
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
-alias dl=docker ps -l -q
+alias dl='docker ps -l -q'
 alias ll="ls -l"
 
-alias brew="env PATH=${PATH/~\/Library\/Python\/2.7\/bin:?/} brew"
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
